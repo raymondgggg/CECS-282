@@ -3,6 +3,18 @@
 
 using namespace std;
 
+void inputRainfall(int rainFall[], int size);
+
+int main(){
+    int arr[12] {0};
+    int size {12};
+
+    inputRainfall(arr,size);
+    
+    return 0;
+}
+
+
 void inputRainfall(int rainFall[], int size){
     ifstream file ("rainfall.txt");
 
@@ -17,24 +29,4 @@ void inputRainfall(int rainFall[], int size){
             break;
         }
     }
-}
-
-int main(){
-    int arr[12] {0};
-    int size {12};
-
-    cout << "Before inserting values: ";
-    for(int value : arr){
-        cout << value << " ";
-    }
-
-    inputRainfall(arr,size);
- 
-    cout << endl;
-
-    cout << "afterinserting values: ";
-    for(int value : arr){
-        cout << value << " ";
-    }
-    return 0;
 }
