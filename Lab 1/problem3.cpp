@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 #include <math.h>
+#include <bits/stdc++.h> 
 
 using namespace std;
 
@@ -15,8 +16,6 @@ int main(){
 
     inputRainfall(monthRain,size);
     cout << "The year's average monthly rainfall was " << calculateAverageRainFall(monthRain, size) << "mm." << endl;
-    cout << "September has the highest rainfall 190(mm)"<< endl;
-    cout << "January has the lowest rainfall (95mm)\n" << endl;
     classifyAndDisplayRainfall(monthRain, size);
 
     return 0;
@@ -48,8 +47,27 @@ int calculateAverageRainFall(int rainFall[], int size){
 
 void classifyAndDisplayRainfall(int rainFall[], int months){
     int avgRain = calculateAverageRainFall(rainFall, months);
+    string monthsArr[12] = {"January", "February", "March", "April", "May", "June", "July", "August","September", "October", "November", "December"};
+    int highestRain {rainFall[0]};
+    int highestRainIndex {0};
+    int lowestRain{rainFall[0]};
+    int lowestRainIndex {0};
+    for (int i {0}; i < months; i++){
+        if (rainFall[i] > highestRain){
+            highestRain = rainFall[i];
+            highestRainIndex = i;
+        }
+        if (rainFall[i] < lowestRain){
+            lowestRain = rainFall[i];
+            lowestRainIndex = i;
+        }
+    }
+
+    cout << monthsArr[highestRainIndex] << " has the highest rainfall " << "(" << rainFall[highestRainIndex] << "mm)." << endl;
+    cout << monthsArr[lowestRainIndex] << " has the lowest rainfall " << "(" << rainFall[lowestRainIndex] << "mm)." << endl;
     printf("%10s%15s%16s\n", "Month", "Rainfall(mm)", "Classifications");
     printf("%10s%15s%15s\n", "------", "---------------", "---------------");
+
     for(int i {0}; i < months; i++){
         if (rainFall[i] > (1.2 * avgRain)){
            printf("%10d%15d%15s\n", i+1, rainFall[i], "Rainy");
@@ -60,6 +78,5 @@ void classifyAndDisplayRainfall(int rainFall[], int months){
         else{
             printf("%10d%15d%15s\n", i+1, rainFall[i], "Average");
         }
-    }
-    
+    } 
 }
