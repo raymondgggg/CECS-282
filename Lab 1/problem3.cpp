@@ -4,13 +4,14 @@
 using namespace std;
 
 void inputRainfall(int rainFall[], int size);
+int calculateAverageRainFall(int rainFall [], int size);
 
 int main(){
     int arr[12] {0};
     int size {12};
 
     inputRainfall(arr,size);
-    
+
     return 0;
 }
 
@@ -25,8 +26,10 @@ void inputRainfall(int rainFall[], int size){
             rainFall[index] = input;
             index ++;
         }
-        else{
-            break;
-        }
     }
+}
+
+int calculateAverageRainFall(int rainFall[], int size){
+    int sum {0};
+
 }
