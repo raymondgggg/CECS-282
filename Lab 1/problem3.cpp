@@ -65,18 +65,19 @@ void classifyAndDisplayRainfall(int rainFall[], int months){
 
     cout << monthsArr[highestRainIndex] << " has the highest rainfall " << "(" << rainFall[highestRainIndex] << "mm)." << endl;
     cout << monthsArr[lowestRainIndex] << " has the lowest rainfall " << "(" << rainFall[lowestRainIndex] << "mm)." << endl;
-    printf("%10s%15s%16s\n", "Month", "Rainfall(mm)", "Classifications");
-    printf("%10s%15s%15s\n", "------", "---------------", "---------------");
+    cout << endl;
+    printf("%-10s%-15s%-16s\n", "Month", "Rainfall(mm)", "Classifications");
+    printf("%-10s%8s%8s\n", "------ ", "------------  ", "----------------");
 
     for(int i {0}; i < months; i++){
         if (rainFall[i] > (1.2 * avgRain)){
-           printf("%10d%15d%15s\n", i+1, rainFall[i], "Rainy");
+           printf("%4d%13d%17s\n", i+1, rainFall[i], "Rainy");
         }
         else if (rainFall[i] < (.75 * avgRain)){
-            printf("%10d%15d%15s\n", i+1, rainFall[i], "Dry");
+            printf("%4d%13d%17s\n", i+1, rainFall[i], "Dry");
         }
         else{
-            printf("%10d%15d%15s\n", i+1, rainFall[i], "Average");
+            printf("%4d%13d%17s\n", i+1, rainFall[i], "Average");
         }
     } 
 }
