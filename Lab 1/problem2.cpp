@@ -21,8 +21,15 @@ int bin2Dec(const string &binaryString){
         POWERS_OF_TWO[i] = result;
     }
 
-    for (int i {0}; i < binaryString.length(); i++){
-        bin2Dec += (binaryString[i] - 48) * POWERS_OF_TWO[i]; // subtracting the char value from 48 brings ASCII to regular int value 
+    int size {0};
+    while(binaryString[size]){
+        size++;
+    }
+
+    int powerIndex {0};
+    for (int i {size}; i > 0 ; i--){
+        bin2Dec += (binaryString[i-1] - 48) * POWERS_OF_TWO[powerIndex];
+        powerIndex++;                                                     // subtracting the char value from 48 brings ASCII to regular int value 
     }
     return bin2Dec;
 }
