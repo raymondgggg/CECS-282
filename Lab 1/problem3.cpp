@@ -1,3 +1,7 @@
+// Raymond Guevara Lozano 
+// Brent Nishioka
+// CECS 282-Sec 07
+
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -8,43 +12,44 @@ using namespace std;
 
 const double ABOVE_AVERAGE {1.2};
 const double BELOW_AVERAGE {.75};
+const int NUM_MONTHS {12};
 
-void inputRainfall(int rainFall[], int size);
-int calculateAverageRainFall(int rainFall [], int size);
+void inputRainfall(int rainFall[], int NUM_MONTHS);
+int calculateAverageRainFall(int rainFall [], int NUM_MONTHS);
 void classifyAndDisplayRainfall(int rainFall[], int months);
 
 int main(){
     int monthRain[12] {0};
-    int size {12};
+    
 
-    inputRainfall(monthRain,size);
-    cout << "The year's average monthly rainfall was " << calculateAverageRainFall(monthRain, size) << "mm." << endl;
-    classifyAndDisplayRainfall(monthRain, size);
+    inputRainfall(monthRain,NUM_MONTHS);
+    cout << "The year's average monthly rainfall was " << calculateAverageRainFall(monthRain, NUM_MONTHS) << "mm." << endl;
+    classifyAndDisplayRainfall(monthRain, NUM_MONTHS);
 
     return 0;
 }
 
-void inputRainfall(int rainFall[], int size){
+void inputRainfall(int rainFall[], int NUM_MONTHS){
     ifstream file ("rainfall.txt");
 
     int input;
     int index {0};
     while(file >> input){
-        if (index < size){
+        if (index < NUM_MONTHS){
             rainFall[index] = input;
             index ++;
         }
     }
 }
 
-int calculateAverageRainFall(int rainFall[], int size){
+int calculateAverageRainFall(int rainFall[], int NUM_MONTHS){
     double sum {0};
 
-    for (int i {0}; i < size; i++){
+    for (int i {0}; i < NUM_MONTHS; i++){
         sum += rainFall[i];
     }
 
-    double avgRain = sum / size;
+    double avgRain = sum / NUM_MONTHS;
     return ceil(avgRain);
 }
 
