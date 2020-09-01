@@ -6,6 +6,9 @@
 
 using namespace std;
 
+const double ABOVE_AVERAGE {1.2};
+const double BELOW_AVERAGE {.75};
+
 void inputRainfall(int rainFall[], int size);
 int calculateAverageRainFall(int rainFall [], int size);
 void classifyAndDisplayRainfall(int rainFall[], int months);
@@ -70,10 +73,10 @@ void classifyAndDisplayRainfall(int rainFall[], int months){
     printf("%-10s%8s%8s\n", "------ ", "------------  ", "----------------");
 
     for(int i {0}; i < months; i++){
-        if (rainFall[i] > (1.2 * avgRain)){
+        if (rainFall[i] > (ABOVE_AVERAGE * avgRain)){
            printf("%4d%13d%17s\n", i+1, rainFall[i], "Rainy");
         }
-        else if (rainFall[i] < (.75 * avgRain)){
+        else if (rainFall[i] < (BELOW_AVERAGE * avgRain)){
             printf("%4d%13d%17s\n", i+1, rainFall[i], "Dry");
         }
         else{
