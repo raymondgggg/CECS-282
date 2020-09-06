@@ -2,36 +2,37 @@
 #define _ACCOUNT_H_
 
 class Account{
-    int balance; 
+    double balance; 
 
     public:
         Account() // when object created with no constructor
             : Account {0} {
-            
         }
 
-        Account(int money) 
+        Account(double money) 
             : balance {money} {
         }
 
-        void deposit(int money){
-            balance += money;
+        void deposit(double money){
+             balance += money;
         }
 
-        void withdraw(int money){
+        bool withdraw(double money){
             if(money > balance){
-                balance -= 5;
+                 balance -= 5;
+                 return false;
             }
             else{
-                balance -= money;
+                 balance -= money;
+                 return true;   
             }
         }
 
-        int getBalance(){
+        double getBalance(){
             return balance;
         }
 
-        void addInterest(int rate){ //annual interest rate 
+        void addInterest(double rate){ //annual interest rate 
             balance *= (1 + rate/100);
         }
 };
