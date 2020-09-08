@@ -43,7 +43,7 @@ class Bank{
                     checkings.deposit(amount);
                 }
                 else{
-                    std::cout << "Cannot transfer money" << std::endl;
+                    std::cout << "Cannot transfer money, penalized $5" << std::endl;
                 }
             }
             else if (account.compare("C") == 0 || account.compare("c") == 0){
@@ -52,7 +52,7 @@ class Bank{
                     savings.deposit(amount);
                 }
                 else{
-                    std::cout << "Cannot transfer money" << std::endl;
+                    std::cout << "Cannot transfer money, penalized $5" << std::endl;
                 }
             }
         }
