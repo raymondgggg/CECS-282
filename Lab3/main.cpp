@@ -6,7 +6,7 @@ int readData(int *&arr);
 void bSort(int *arr, int last);
 void writeToConsole(int *arr, int last);
 void descendingSort(int *arr, int last);
-void bubble_sort(int *array, int size, void(*funct)(int));
+void bubble_sort(int *array, int size, void(*funct)(int *arr, int));
 
 int main(){ 
   int *arr {nullptr};
@@ -16,7 +16,7 @@ int main(){
   for (int i {0}; i < size; i++){
       cout << *(arr + i) << " ";
   }
-  cout << endl;
+  cout << endl << endl;
 
   cout << "Ascending Sort: ";
   bubble_sort(arr, size, bSort);
@@ -92,6 +92,6 @@ void descendingSort(int *arr, int last){
     }
 }
 
-void bubble_sort(int *arr, int size, void (*funct)(int *arr,int)){
-    funct(arr, size);
+void bubble_sort(int *arr, int size, void (*sortFunct)(int *arr, int)){
+    sortFunct(arr, size);
 }
