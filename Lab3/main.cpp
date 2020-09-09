@@ -4,23 +4,94 @@ using namespace std;
 
 int readData(int *&arr);
 void bSort(int *arr, int last);
-void ascendingSort(int *&arr);
-void descendingSort(int *&arr);
+void writeToConsole(int *arr, int last);
+void descendingSort(int *arr, int last);
 void bubble_sort(int *array, int size, void(*funct)(int));
-
-int funct(int *&arr)
-{
-    arr = new int[9];
-    *arr = 1;
-    *(arr + 1) = 3;
-    return 0;
-}
 
 int main(){ 
   int *arr {nullptr};
-  funct(arr);
-  cout << *arr << endl;
-  cout << *(arr +1) << endl;
+  int size {readData(arr)};
+
+  cout << "Elements: ";
+  for (int i {0}; i < size; i++){
+      cout << *(arr + i) << " ";
+  }
+  cout << endl;
+
+  cout << "Ascending Sort: ";
+  bubble_sort(arr, size, bSort);
+  writeToConsole(arr, size);
+  cout << endl;
+
+  cout << "Descending Sort: ";
+  bubble_sort(arr, size, descendingSort);
+  writeToConsole(arr, size);
+  cout << endl;
 }
 
+int readData(int *&arr){
+    ifstream indata;
+    int num{0};
 
+    indata.open("data.txt");
+    indata >> num;
+    arr = new int[num];
+    int size = num;
+    int index {0};
+    
+    while (!indata.eof()){
+        indata >> num;
+        *(arr + index) = num;
+        index++;
+    }
+    indata.close();
+    return size;
+}
+
+void bSort(int *arr, int last){
+    bool swapped = true;
+    int j = 0;
+    int tmp;
+
+    while (swapped){
+        swapped = false;
+        j++;
+        for (int i = 0; i < last - j; i++){
+            if (*(arr + i) > *(arr + i + 1)){
+                tmp = *(arr + i);
+                *(arr + i) = *(arr + i + 1);
+                *(arr + i + 1) = tmp;
+                swapped = true;
+            }
+        }
+    }
+}
+
+void writeToConsole(int *arr, int last){
+    for (int i{0}; i < last; i++){
+        cout << *(arr + i) << " ";
+    }
+}
+
+void descendingSort(int *arr, int last){
+    bool swapped = true;
+    int j = 0;
+    int tmp;
+
+    while (swapped){
+        swapped = false;
+        j++;
+        for (int i = 0; i < last - j; i++){
+            if (*(arr + i) < *(arr + i + 1)){
+                tmp = *(arr + i);
+                *(arr + i) = *(arr + i + 1);
+                *(arr + i + 1) = tmp;
+                swapped = true;
+            }
+        }
+    }
+}
+
+void bubble_sort(int *arr, int size, void (*funct)(int *arr,int)){
+    funct(arr, size);
+}

@@ -8,7 +8,7 @@
 
 using namespace std;
 
-int bin2Dec(const string &binaryString){
+int bin2Dec(const string &binaryString){ //& means that we are passing by reference 
     int bin2Dec {0};
     int POWERS_OF_TWO[binaryString.length()] = {0};
     POWERS_OF_TWO[0] = 1;
