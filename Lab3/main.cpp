@@ -1,5 +1,4 @@
 #include "functions.h"
-
 int main(){ 
   int *arr {nullptr};
   int size {readData(arr)};

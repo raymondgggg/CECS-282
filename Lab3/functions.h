@@ -48,7 +48,7 @@ void bSort(int *arr, int last)
     }
 }
 
-void writeToConsole(int *arr, int last)
+void writeToConsole(const int *arr, int last)
 {
     for (int i{0}; i < last; i++)
     {
