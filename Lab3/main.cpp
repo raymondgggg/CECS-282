@@ -5,7 +5,7 @@ using namespace std;
 int readData(int *&arr);
 void bSort(int *arr, int last);
 void writeToConsole(int *arr, int last);
-void descendingSort(int *arr, int last);
+void descendingBSort(int *arr, int last);
 void bubble_sort(int *array, int size, void(*funct)(int *arr, int));
 
 int main(){ 
@@ -24,9 +24,11 @@ int main(){
   cout << endl;
 
   cout << "Descending Sort: ";
-  bubble_sort(arr, size, descendingSort);
+  bubble_sort(arr, size, descendingBSort);
   writeToConsole(arr, size);
   cout << endl;
+  delete arr;
+  return 0;
 }
 
 int readData(int *&arr){
@@ -73,7 +75,7 @@ void writeToConsole(int *arr, int last){
     }
 }
 
-void descendingSort(int *arr, int last){
+void descendingBSort(int *arr, int last){
     bool swapped = true;
     int j = 0;
     int tmp;
