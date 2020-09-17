@@ -7,12 +7,32 @@ void order(Person**, Person**);
 void test(int x,int y);
 
 int main(){
-    int numPeople {};
+    int numOfPeople {0};
+    cout << "How many people would you like to enter? ";
+    cin >> numOfPeople; 
+    cout << endl;
+
+    Person people[numOfPeople];//declare array of type person 
+    Person *ptr[numOfPeople];// have array of pointers of type person 
     
+    Person person; //what will be used to add people to array of type person
+    double salary {0};
+    string name;
 
+    for (int i {0}; i < numOfPeople; i++){//fill up array of type person 
+        cout << "Enter the name of person: ";
+        cin >> name;
+        cout << endl << "Enter the salary of " << name << ": ";
+        cin >> salary;
+        cout << endl;
+        person.setPerson(name,salary);
+        people[i] = person;
+    }
 
-
-   
+    for (int i {0}; i < numOfPeople; i++){//fill up array of pointers to objects of type person
+        ptr[i] = &people[i];
+    }
+    
     return 0;
 }
 
