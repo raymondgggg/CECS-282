@@ -22,7 +22,7 @@ int main(){
     for (int i {0}; i < numOfPeople; i++){//fill up array of type person 
         cout << "Enter the name of person: ";
         cin >> name;
-        cout << endl << "Enter the salary of " << name << ": ";
+        cout << "Enter the salary of " << name << ": ";
         cin >> salary;
         cout << endl;
         person.setPerson(name,salary);
@@ -31,6 +31,11 @@ int main(){
 
     for (int i {0}; i < numOfPeople; i++){//fill up array of pointers to objects of type person
         ptr[i] = &people[i];
+    }
+
+    Person **personPtr = &ptr[0]; // pointer to the first pointer of type Person in array of pointers
+    for (int i {0}; i < numOfPeople; i++){
+        cout << *personPtr + i << "   " << ptr[i] << endl;
     }
     
     return 0;
