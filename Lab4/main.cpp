@@ -35,17 +35,15 @@ int main(){
 
     Person **personPtr = &ptr[0]; // pointer to the first pointer of type Person in array of pointers
 
-    cout << "Sorted by Salary: " << endl;
+    cout << "People Sorted by Salary: " << endl << endl;
     bSort(personPtr, numOfPeople, false);
     display(personPtr, numOfPeople);
     cout << endl;
 
-    cout << "Sorted by Name: " << endl;
+    cout << "People Sorted by Name: " << endl << endl;
     bSort(personPtr, numOfPeople, true);
     display(personPtr, numOfPeople);
     cout << endl;
-    
-    
     return 0;
 }
 
@@ -53,7 +51,6 @@ void bSort(Person **person, int n, bool s){
     if (!s){ //sorted by salary
         bool swapped = true;
         int j = 0;
-        int tmp;
 
         while (swapped)
         {
@@ -74,7 +71,6 @@ void bSort(Person **person, int n, bool s){
     else{ //sorted by name
         bool swapped = true;
         int j = 0;
-        int tmp;
 
         while (swapped)
         {
@@ -84,7 +80,7 @@ void bSort(Person **person, int n, bool s){
             {
                 Person personi = *(*(person) + i);
                 Person personiPlus1 = *(*(person) + i + 1);
-                if (personi.getName().compare(personiPlus1.getName()) < 0)
+                if (personi.getName().compare(personiPlus1.getName()) > 0)
                 {
                     order(person + i, person + i + 1);
                     swapped = true;
@@ -97,14 +93,14 @@ void bSort(Person **person, int n, bool s){
 
 void order(Person **personi, Person **personiPlus1){
     Person tmp = **personi;
-    **personi = *(*(personiPlus1) + 1);
+    **personi = *(*(personiPlus1));
     **personiPlus1 = tmp;
 }
 
 void display(Person **person, int length){
     for(int i {0}; i < length; i++){
         Person personi = *(*(person) + i);
-        cout << personi.getName();
-
+        printf("%-10s%10.2f", personi.getName().c_str(), personi.getSalary());
+        cout << endl;
     }
 }
