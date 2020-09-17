@@ -2,9 +2,9 @@
 #include "Person.cpp"
 using namespace std;
 
-void bSort(Person**, int n, bool s);
-void order(Person**, Person**);
-void test(int x,int y);
+void bSort(Person **person, int n, bool s);
+void order(Person **personi, Person **personiPlus1);
+void display(Person **person, int length);
 
 int main(){
     int numOfPeople {0};
@@ -34,35 +34,77 @@ int main(){
     }
 
     Person **personPtr = &ptr[0]; // pointer to the first pointer of type Person in array of pointers
-    for (int i {0}; i < numOfPeople; i++){
-        cout << *personPtr + i << "   " << ptr[i] << endl;
-    }
+
+    cout << "Sorted by Salary: " << endl;
+    bSort(personPtr, numOfPeople, false);
+    display(personPtr, numOfPeople);
+    cout << endl;
+
+    cout << "Sorted by Name: " << endl;
+    bSort(personPtr, numOfPeople, true);
+    display(personPtr, numOfPeople);
+    cout << endl;
+    
     
     return 0;
 }
 
 void bSort(Person **person, int n, bool s){
-    bool swapped = true;
-    int j = 0;
-    int tmp;
+    if (!s){ //sorted by salary
+        bool swapped = true;
+        int j = 0;
+        int tmp;
 
-    while (swapped){
-        swapped = false;
-        j++;
-        for (int i {0}; i < n - j; i++){
-            Person personi = *(*(person) + i);
-            Person personiPlus1 = *(*(person) + i + 1);
-            if (personi.getSalary() > personiPlus1.getSalary()){
-                order(person, person);
-                swapped = true;
+        while (swapped)
+        {
+            swapped = false;
+            j++;
+            for (int i{0}; i < n - j; i++)
+            {
+                Person personi = *(*(person) + i);
+                Person personiPlus1 = *(*(person) + i + 1);
+                if (personi.getSalary() > personiPlus1.getSalary())
+                {
+                    order(person + i, person + i + 1);
+                    swapped = true;
+                }
             }
         }
     }
+    else{ //sorted by name
+        bool swapped = true;
+        int j = 0;
+        int tmp;
+
+        while (swapped)
+        {
+            swapped = false;
+            j++;
+            for (int i{0}; i < n - j; i++)
+            {
+                Person personi = *(*(person) + i);
+                Person personiPlus1 = *(*(person) + i + 1);
+                if (personi.getName().compare(personiPlus1.getName()) < 0)
+                {
+                    order(person + i, person + i + 1);
+                    swapped = true;
+                }
+            }
+        }
+    }
+    
 }
 
-void order(Person** personi, Person** personiPlus1){
+void order(Person **personi, Person **personiPlus1){
     Person tmp = **personi;
     **personi = *(*(personiPlus1) + 1);
     **personiPlus1 = tmp;
 }
 
+void display(Person **person, int length){
+    for(int i {0}; i < length; i++){
+        Person personi = *(*(person) + i);
+        cout << personi.getName();
+
+    }
+}
