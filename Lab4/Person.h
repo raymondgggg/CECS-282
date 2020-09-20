@@ -9,7 +9,7 @@ class Person{
         double salary;
 
     public:
-        void setPerson(string name, double salary);
+        void setPerson();
         string getName();
         double getSalary();
 };
