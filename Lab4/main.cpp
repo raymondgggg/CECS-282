@@ -32,6 +32,8 @@ int main(){
     bSort(ptr, numOfPeople, true);
     display(ptr, numOfPeople);
     cout << endl;
+
+    delete ptr;
     return 0;
 }
 
