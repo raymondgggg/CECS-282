@@ -33,8 +33,11 @@ int main(){
     display(ptr, numOfPeople);
     cout << endl;
 
-    delete ptr;
+    for (int i {0}; i<numOfPeople; i++){ //deleting the array of pointers
+        delete ptr[i];
+    }
     return 0;
+    
 }
 
 void bSort(Person **person, int n, bool s){
