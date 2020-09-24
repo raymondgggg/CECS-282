@@ -2,7 +2,7 @@
 #define _ACCOUNT_H_
 
 class Account{
-    double balance; 
+    
 
     public:
         Account() // when object created with no constructor
@@ -35,6 +35,8 @@ class Account{
         void addInterest(double rate){ //annual interest rate 
             balance *= (1 + rate/100);
         }
+    private:
+        double balance;
 };
 
 #endif //_ACCOUNT_H_

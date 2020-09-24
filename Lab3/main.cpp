@@ -1,4 +1,7 @@
 #include "functions.h"
+// Team 5
+// Raymond Guevara
+// Brent Nishioka
 int main(){ 
   int *arr {nullptr};
   int size {readData(arr)};
