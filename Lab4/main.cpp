@@ -12,8 +12,8 @@ int main(){
     cin >> numOfPeople; 
     cout << endl;
 
-    Person *ptr[numOfPeople];// have array of pointers of type person 
-
+    Person *ptr[numOfPeople];// array of type person, size of numOfpeople, the variable ptr created on stack?
+    
     for (int i {0}; i < numOfPeople; i++){//fill up array of type person 
         ptr[i] = new Person();
         ptr[i] -> setPerson();
@@ -34,7 +34,7 @@ int main(){
     cout << endl;
 
     for (int i {0}; i<numOfPeople; i++){ //deleting the array of pointers
-        delete ptr[i];
+        delete ptr[i];//pointes that were allocated on the heap 
     }
     return 0;
     
