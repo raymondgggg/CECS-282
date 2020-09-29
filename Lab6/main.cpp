@@ -7,7 +7,7 @@ bool testPalindrome(char *str);
 int main(){
     string usrInput;
     cout << "Enter String: ";
-    cin >> usrInput;
+    getline(cin, usrInput);
 
     char *raw = &usrInput[0];
     char *testStr;
@@ -60,6 +60,7 @@ bool testPalindrome(char *str){
     for (int i {0}; i < pointerLen; ++i){
         backwardStr[i] = originalStr[pointerLen - (i+1)];
     }
+    
     // check to see if arrays are the same forward and backward
     for (int i {0}; i < pointerLen; ++i){
         if (originalStr[i] != backwardStr[i]){
