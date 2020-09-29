@@ -52,20 +52,10 @@ bool testPalindrome(char *str){
     while (str[pointerLen] != '\0'){
         ++pointerLen;
     }
-    // create two char arrays to compare the values of the orginal string and original string backwards
-    char originalStr [pointerLen];
-    char backwardStr [pointerLen];
-    // populate the char arrays respectively
+    
+    // check to see if chars are the same forward and backwards
     for (int i {0}; i < pointerLen; ++i){
-        originalStr[i] = str[i];
-    }
-    for (int i {0}; i < pointerLen; ++i){
-        backwardStr[i] = originalStr[pointerLen - (i+1)];
-    }
-
-    // check to see if arrays are the same forward and backward
-    for (int i {0}; i < pointerLen; ++i){
-        if (originalStr[i] != backwardStr[i]){
+        if (str[i] != str[pointerLen - (i+1)]){
             return false;// false if linearly compared elements are not the same
         }
     }
