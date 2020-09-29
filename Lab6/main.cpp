@@ -19,6 +19,8 @@ int main(){
     else{
         cout << "The string entered is not a palindrome." << endl;
     }
+    
+    delete [] testStr;
     return 0;
 }
 
@@ -60,7 +62,7 @@ bool testPalindrome(char *str){
     for (int i {0}; i < pointerLen; ++i){
         backwardStr[i] = originalStr[pointerLen - (i+1)];
     }
-    
+
     // check to see if arrays are the same forward and backward
     for (int i {0}; i < pointerLen; ++i){
         if (originalStr[i] != backwardStr[i]){
