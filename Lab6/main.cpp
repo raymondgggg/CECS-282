@@ -10,7 +10,7 @@ int main(){
     getline(cin, usrInput);
 
     char *raw = &usrInput[0];
-    char *testStr;
+    char *testStr {nullptr};
     transform(raw, testStr);
 
     if (testPalindrome(testStr)){
