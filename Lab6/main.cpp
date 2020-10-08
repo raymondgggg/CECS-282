@@ -6,13 +6,13 @@ bool testPalindrome(char *str);
 
 int main(){
 
-    int numStrings {0};
-    cout << "How many strings? " << endl;
-    cin >> numStrings;
+    char choice;
+    cout << "Input String? (y/n): " << endl;
+    cin >> choice;
     cin.ignore();
-    cout << endl;
 
-    for (int i {0}; i < numStrings; i++){
+    while (choice != 'n')
+    {
         string usrInput;
         cout << "Enter String: ";
         getline(cin, usrInput);
@@ -22,14 +22,19 @@ int main(){
 
         if (testPalindrome(testStr))
         {
-            cout << "The string entered is a palindrome." << endl;
+            cout << "The string entered is a palindrome." << endl
+                 << endl;
         }
         else
         {
-            cout << "The string entered is not a palindrome." << endl;
+            cout << "The string entered is not a palindrome." << endl
+                 << endl;
         }
 
         delete[] testStr;
+        cout << "Input String? (y/n): " << endl;
+        cin >> choice;
+        cin.ignore();
     }
     return 0;
 }
