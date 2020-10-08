@@ -5,22 +5,32 @@ void transform(char *raw, char *&testStr);
 bool testPalindrome(char *str);
 
 int main(){
-    string usrInput;
-    cout << "Enter String: ";
-    getline(cin, usrInput);
 
-    char *raw = &usrInput[0];
-    char *testStr {nullptr};
-    transform(raw, testStr);
+    int numStrings {0};
+    cout << "How many strings? " << endl;
+    cin >> numStrings;
+    cin.ignore();
+    cout << endl;
 
-    if (testPalindrome(testStr)){
-        cout << "The string entered is a palindrome." << endl;
+    for (int i {0}; i < numStrings; i++){
+        string usrInput;
+        cout << "Enter String: ";
+        getline(cin, usrInput);
+        char *raw = &usrInput[0];
+        char *testStr{nullptr};
+        transform(raw, testStr);
+
+        if (testPalindrome(testStr))
+        {
+            cout << "The string entered is a palindrome." << endl;
+        }
+        else
+        {
+            cout << "The string entered is not a palindrome." << endl;
+        }
+
+        delete[] testStr;
     }
-    else{
-        cout << "The string entered is not a palindrome." << endl;
-    }
-    
-    delete [] testStr;
     return 0;
 }
 
