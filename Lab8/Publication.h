@@ -1,15 +1,18 @@
 #ifndef PUBLICATION_PUBLICATION_H
 #define PUBLICATION_PUBLICATION_H
 #include <iostream>
-
+#include <string>
 using namespace std;
 
-class Publication
-{
+class Publication{
+    public:
+        //Declare two functions getData and putData
+        void getData();
+        void putData();
 
-public:
-    //Declare two functions getData and putData
-
-    //Declare title and price
+        //Declare title and price
+        string title;
+        float price;
 };
+
 #endif //PUBLICATION_PUBLICATION_H

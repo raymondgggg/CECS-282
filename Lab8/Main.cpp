@@ -1,10 +1,11 @@
-#include "Sale.h"
-#include "Publication.h"
-#include "Book.h"
-#include "Digital.h"
+// Raymond Guevara Lozano 
+// CECS 282 Lab 8
+#include "Sale.cpp"
+#include "Publication.cpp"
+#include "Book.cpp"
+#include "Digital.cpp"
 #include <iostream>
 #include <string>
-
 using namespace std;
 
 int main(){
@@ -12,10 +13,10 @@ int main(){
     Digital digital;
     book.getData();
     book.putData();
-    cout << endl;
+    cout << endl << endl;
+    cin.ignore();
     digital.getData();
     digital.putData();
     cout << endl;
-
     return 0;
 }
