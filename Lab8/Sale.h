@@ -9,6 +9,7 @@ class Sale{
         void putData();
 
         //Declare an array to store sales for three months
+    private:
         float saleArray[3];
 };
 #endif //PUBLICATION_SALE_H

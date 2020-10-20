@@ -9,7 +9,8 @@ class Digital: public Publication, public Sale{
     public:
         void getData();
         void putData();
-
+    
+    private:
         float storage;
 };
 #endif //PUBLICATION_DIGITAL_H

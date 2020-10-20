@@ -12,10 +12,12 @@ int main(){
     Book book;
     Digital digital;
     book.getData();
+    cout << endl;
     book.putData();
     cout << endl << endl;
     cin.ignore();
     digital.getData();
+    cout << endl;
     digital.putData();
     cout << endl;
     return 0;

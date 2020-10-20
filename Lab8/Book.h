@@ -9,7 +9,7 @@ class Book: public Publication, public Sale{
     public:
         void getData();
         void putData();
-
+    private:
         int pageCount;
 };
 

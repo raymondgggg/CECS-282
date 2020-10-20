@@ -11,6 +11,7 @@ class Publication{
         void putData();
 
         //Declare title and price
+    private:
         string title;
         float price;
 };
