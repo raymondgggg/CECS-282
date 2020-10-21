@@ -1,8 +1,8 @@
 #ifndef EMPLOYEE_H
 #define EMPLOYEE_H
 #include <string>
-double FACULTY_MONTHLY_SALARY{5000.00};
-double STAFF_MONTHLY_HOURS_WORKED{160};
+double FACULTY_MONTHLY_SALARY {5000.00};
+double STAFF_MONTHLY_HOURS_WORKED {160};
 
 enum Sex{
     M,F
@@ -16,9 +16,9 @@ class Employee{
         Sex sex;
         std::string bDay;
     public:
-        Employee(std::string lastName, std::string firstName,std::string id, Sex sex, std::string bDay);
+        Employee(std::string lastName, std::string firstName, std::string id, Sex sex, std::string bDay);
         Employee();
-        void putData();
+        virtual void putData();
 
         std::string getLastName();
         std::string getFirstName();

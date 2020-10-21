@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 #include "Employee.h"
 Employee::Employee(std::string lastName, std::string firstName, std::string id, Sex sex, std::string bDay)
     :lastName {lastName}, firstName {firstName}, id {id}, sex{sex}, bDay{bDay}{
@@ -54,4 +53,8 @@ void Employee::setSex(Sex s){
 
 void Employee::setbDay(std::string bDay){
     this->bDay = bDay;
+}
+
+Employee::~Employee(){
+
 }
