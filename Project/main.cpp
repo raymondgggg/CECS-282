@@ -25,7 +25,7 @@ int main(){
     e.push_back(new Partime("Depirro", "Martin", "678", F, "9/15/1987", 30.00, 15));
 
     int i {1};
-    for (auto &employee : e){
+    for (Employee* &employee : e){
         std::cout << i << ".";
         employee->putData();
         std::cout << std::endl;
@@ -34,7 +34,7 @@ int main(){
 
     double parTimeSalary {0};
     double totalMonSal {0};
-    for (auto &employee : e){
+    for (Employee* &employee : e){
         if (typeid(Partime) == typeid(*employee)){
             parTimeSalary += employee->monthlyEarnings();
         }
@@ -43,7 +43,7 @@ int main(){
     std::cout << "Total monthly salary for all part-time staff: $" << parTimeSalary << std::endl;
     std::cout << "Total monthly salary for all employees: $" << totalMonSal << std::endl;
 
-    for (auto &employee : e){
+    for (Employee* &employee : e){
         delete employee;
     }
     return 0;
