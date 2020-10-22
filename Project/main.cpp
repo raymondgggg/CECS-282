@@ -32,6 +32,17 @@ int main(){
         ++i;
     }
 
+    double parTimeSalary {0};
+    double totalMonSal {0};
+    for (auto &employee : e){
+        if (typeid(Partime) == typeid(*employee)){
+            parTimeSalary += employee->monthlyEarnings();
+        }
+        totalMonSal += employee->monthlyEarnings();
+    }
+    std::cout << "Total monthly salary for all part-time staff: $" << parTimeSalary << std::endl;
+    std::cout << "Total monthly salary for all employees: $" << totalMonSal << std::endl;
+
     for (auto &employee : e){
         delete employee;
     }
