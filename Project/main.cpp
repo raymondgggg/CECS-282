@@ -1,4 +1,5 @@
 //Raymond Guevara Lozano
+//Brent Nishioka
 //CECS 282 Project - Part 1
 #include <iostream>
 #include <vector>
