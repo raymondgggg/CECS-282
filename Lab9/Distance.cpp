@@ -12,10 +12,15 @@ Distance operator-(const Distance &lhs, const Distance &rhs){
     return Distance {newFeet, newInches};
 }
 
-int Distance::getFeet(){
-    return this->feet;
+std::ostream &operator<<(std::ostream &os, const Distance &obj){
+    os << "{Feet: " << obj.feet << ", " << "Inches: " << obj.inches << "}";
+    return os;
 }
 
-float Distance::getInches(){
-    return this->inches;
+std::istream &operator>>(std::istream &in, Distance &obj){
+    std::cout << "Enter Feet: ";
+    in >> obj.feet;
+    std::cout << "Enter Inches: ";
+    in >> obj.inches;
+    return in;
 }

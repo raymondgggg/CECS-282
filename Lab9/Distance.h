@@ -5,7 +5,7 @@ class Distance //English Distance class
 {
     friend Distance operator-(const Distance &lhs, const Distance &rhs);
     friend std::ostream &operator<<(std::ostream &os, const Distance &obj);
-    friend std::istream &operator>>(std::istream &is, Distance &obj);
+    friend std::istream &operator>>(std::istream &in, Distance &obj);
     private:
         int feet;
         float inches;
@@ -17,9 +17,6 @@ class Distance //English Distance class
         Distance(int ft, float in) : feet(ft), inches(in)
         {
         }
-
-        int getFeet();
-        float getInches();
 
         Distance operator+(const Distance &rhs) const;
 };
