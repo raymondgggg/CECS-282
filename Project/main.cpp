@@ -1,6 +1,4 @@
 //Raymond Guevara Lozano
-//Brent Nishioka
-//CECS 282 Project - Part 1
 #include <iostream>
 #include <vector>
 #include <typeinfo>
@@ -25,26 +23,24 @@ int main(){
     e.push_back(new Partime("Depirro", "Martin", "678", F, "9/15/1987", 30.00, 15));
 
     int i {1};
+    double parTimeSalary{0};
+    double totalMonSal{0};
     for (Employee* &employee : e){
         std::cout << i << ".";
         employee->putData();
         std::cout << std::endl;
         ++i;
-    }
-
-    double parTimeSalary {0};
-    double totalMonSal {0};
-    for (Employee* &employee : e){
-        if (typeid(Partime) == typeid(*employee)){
+        if (typeid(Partime) == typeid(*employee))
+        {
             parTimeSalary += employee->monthlyEarnings();
         }
         totalMonSal += employee->monthlyEarnings();
     }
     std::cout << "Total monthly salary for all part-time staff: $" << parTimeSalary << std::endl;
     std::cout << "Total monthly salary for all employees: $" << totalMonSal << std::endl;
-
     for (Employee* &employee : e){
         delete employee;
     }
+
     return 0;
 }
