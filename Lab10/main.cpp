@@ -34,5 +34,6 @@ int main(){
     list1.displayData();
     cout << "List 2: " << endl;
     list2.displayData();
+    cout << endl;
     return 0;
 }

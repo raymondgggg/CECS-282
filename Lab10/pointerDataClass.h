@@ -28,6 +28,9 @@ public:
 
     //The function displayData displays all the array elements in p
     void displayData();
+
+    //copy constructor
+    pointerDataClass(const pointerDataClass &oldObj);
 };
 
 #endif 
