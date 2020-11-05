@@ -1,7 +1,11 @@
 #include <iostream>
 #include "alpha.cpp"
 #include "pointerDataClass.cpp"
+#include "gamma.cpp"
 using namespace std;
+
+int gamma::runningTotal{0};
+
 int main(){
     cout << "Part 1:" << endl;
     alpha a1(37);
@@ -17,7 +21,7 @@ int main(){
     alpha a4 = a1;
     cout << "\na4=";
     a4.display();
-    cout << endl << endl;
+    cout << endl;
 
     cout << "Part 2 and 3: " << endl;
     pointerDataClass list1(10);
@@ -35,5 +39,15 @@ int main(){
     cout << "List 2: " << endl;
     list2.displayData();
     cout << endl;
+
+    cout << "Part 4:" << endl;
+    gamma g1;
+    gamma::showtotal();
+    gamma g2, g3;
+    gamma::showtotal();
+    g1.showid();
+    g2.showid();
+    g3.showid();
+    cout << "----------end of program----------\n";
     return 0;
 }
