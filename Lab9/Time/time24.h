@@ -42,5 +42,4 @@ public:          //no-arg constructor
         return time12 {pm, hrs, mins};
     }
 };
-
 #endif //TIME_24_H
