@@ -15,12 +15,10 @@ class pointerDataClass
     int *p; // pointer to an int array
 
 public:
-    //Constructor to create an array of the size specified by the parameter size.
-
+    //Constructor to create an array of the size specified by the parameter size.`
     pointerDataClass(int size);
 
     //Destructor to deallocate the memory space occupied by the array p
-
     ~pointerDataClass();
 
     //the function insertAt inserts num into array p at the position specified by
@@ -29,7 +27,6 @@ public:
     void insertAt(int index, int num);
 
     //The function displayData displays all the array elements in p
-
     void displayData();
 };
 
