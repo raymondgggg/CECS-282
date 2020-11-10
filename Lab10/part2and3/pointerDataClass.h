@@ -30,7 +30,7 @@ public:
     void displayData();
 
     //copy constructor
-    pointerDataClass(const pointerDataClass &oldObj);
+    // pointerDataClass(const pointerDataClass &oldObj);
 };
 
 #endif 

@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    cout << "Part 3 (deep):" << endl;
+    cout << "Part 2 (shallow):" << endl;
     pointerDataClass list1(10);
     list1.insertAt(0, 50);
     list1.insertAt(4, 30);
