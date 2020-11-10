@@ -6,6 +6,8 @@ gamma::gamma(){
 }
 
 gamma::~gamma(){
+    this->runningTotal--;
+    this->id--;
     cout << "Destroying ID number " << this->id << endl;
 }
 
