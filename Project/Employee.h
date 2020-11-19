@@ -9,6 +9,10 @@ enum Sex{
     M,F
 };
 
+enum employee_type{
+    tFaculty, tStaff, tPartime
+};
+
 class Employee{
     private:
         std::string lastName;
@@ -44,5 +48,6 @@ class Employee{
         virtual double monthlyEarnings() = 0;
         virtual ~Employee();
         virtual void getData(); // part 3 method
+        virtual employee_type get_type();
 };
 #endif //EMPLOYEE_H

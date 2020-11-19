@@ -32,6 +32,7 @@ Staff::~Staff(){
 
 void Staff::getData(){
     Employee::getData();
+    std::cin.ignore(10, '\n');
     std::cout << "Enter Hourly Rate: ";
     std::cin >> this->hrRate;
 }

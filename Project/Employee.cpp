@@ -60,17 +60,25 @@ Employee::~Employee(){
 }
 
 void Employee::getData(){
+    std::cin.ignore(10, '\n');
     std::cout << "Enter last name: ";
     std::getline(std::cin, this->lastName);
+    
     std::cout << "Enter first name: ";
     std::getline(std::cin, this->firstName);
+    
 
     std::cout << "Enter ID: ";
     std::getline(std::cin, this->id);
+    
 
     char gender;
     std::cout << "Enter sex (m or f): ";
     std::cin >> gender;
+    std::cin.ignore();
+
+    
+
     gender = tolower(gender);
     if (gender == 'm')
         this->sex = M;
@@ -79,4 +87,5 @@ void Employee::getData(){
 
     std::cout << "Enter birthdate M/D/YYYY: ";
     std::getline(std::cin, this->bDay);
+    std::cout << "Base info added. Press enter to add more info." << std::endl;
 }
