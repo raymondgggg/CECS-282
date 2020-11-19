@@ -12,7 +12,8 @@ class Partime: public Staff{
         double getHrWk();
         void setHrWk(double hr);
         virtual double monthlyEarnings() override;
-        virtual void putData();
+        virtual void putData() override;
+        virtual void getData() override;
         virtual ~Partime();
 };
 #endif //PARTIME_H

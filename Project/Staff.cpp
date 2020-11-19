@@ -29,3 +29,9 @@ void Staff::putData(){
 Staff::~Staff(){
 
 }
+
+void Staff::getData(){
+    Employee::getData();
+    std::cout << "Enter Hourly Rate: ";
+    std::cin >> this->hrRate;
+}

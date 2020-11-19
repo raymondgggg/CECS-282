@@ -29,3 +29,9 @@ void Partime::putData(){
 Partime::~Partime(){
     
 }
+
+void Partime::getData(){
+    Staff::getData();
+    std::cout << "Enter hours per week: ";
+    std::cin >> this->hrWk;
+}

@@ -50,3 +50,27 @@ void Faculty::putData(){
 
 Faculty::~Faculty(){
 }
+
+void Faculty::getData(){
+    Employee::getData();
+    std::cout << "Enter level of faculty AS(0), AO(1), FU(2): ";
+    int level;
+    std::cin >> level;
+    this->l = static_cast<lvl>(level); // cast the int entered to the corresponding level
+
+    std::string degree {};
+    std::string major {};
+    int research {};
+    std::cout << "Enter the Education of the faculty member: ";
+    std::cout << "Enter the degree (Bachelors, Masters, PhD): ";
+    std::getline(std::cin, degree);
+
+    std::cout << "Enter the major: ";
+    std::getline(std::cin, major);
+
+    std::cout << "Enter the number of research publications: ";
+    std::cin >> research;
+
+    Education e (degree, major, research);
+    setEducation(e);
+}

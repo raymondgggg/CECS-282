@@ -7,7 +7,7 @@ enum lvl{
     AS, AO, FU
 };
 
-class Faculty:public Employee{
+class Faculty: public Employee{
     private:
         lvl l;
         Education ed;
@@ -20,7 +20,8 @@ class Faculty:public Employee{
         void setLvl(lvl l);
         void setEducation(Education ed);
         virtual double monthlyEarnings() override;
-        virtual void putData();
+        virtual void putData() override;
+        virtual void getData() override; //part 3 method
         virtual ~Faculty();
         
 

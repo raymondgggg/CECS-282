@@ -13,7 +13,8 @@ class Staff: public Employee{
         double getRate();
         void setRate(double hrRate);
         virtual double monthlyEarnings() override;
-        virtual void putData();
+        virtual void putData() override;
+        virtual void getData() override;
         virtual ~Staff();
 
 };

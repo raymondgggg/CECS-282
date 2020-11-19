@@ -10,6 +10,34 @@
 #include "Faculty.cpp"
 #include "Partime.cpp"
 
+std::vector<Employee *> Employee::employees(100); // 100 is max number of employees
+int Employee::n{};
+
+void Employee::add(){
+    char input;
+    std::cout << "'f' to add a Faculty"
+                 "\n's' to add a staff"
+                 "\n'p' to add a Parttime"
+                 "\nEnter selection: ";
+    std::cin >> input;
+    switch (input)
+    { //create specified employee type
+    case 'f':
+        employees[n] = new Faculty();
+        break;
+    case 's':
+        employees[n] = new Staff();
+        break;
+    case 'p':
+        employees[n] = new Partime();
+        break;
+    default:
+        std::cout << "\nUnknown employee type\n";
+        return;
+    }
+    employees[n++]->getData(); //get employee data from user !!!Implement a getData method
+}
+
 int main(){
     std::vector<Employee *> e;
 
@@ -23,7 +51,8 @@ int main(){
     e.push_back(new Faculty("Bouris", "William", "791", F, "3/14/1975", AO, Education("PhD", "English", 1)));
     e.push_back(new Partime("Depirro", "Martin", "678", F, "9/15/1987", 30.00, 15));
 
-    int i {1};
+    int i {1};0
+
     double parTimeSalary{0};
     double totalMonSal{0};
     for (Employee* &employee : e){
