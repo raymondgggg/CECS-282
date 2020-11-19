@@ -51,7 +51,7 @@ int main(){
     e.push_back(new Faculty("Bouris", "William", "791", F, "3/14/1975", AO, Education("PhD", "English", 1)));
     e.push_back(new Partime("Depirro", "Martin", "678", F, "9/15/1987", 30.00, 15));
 
-    int i {1};0
+    int i {1};
 
     double parTimeSalary{0};
     double totalMonSal{0};
