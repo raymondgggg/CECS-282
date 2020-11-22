@@ -10,11 +10,12 @@
 #include "Education.cpp"
 #include "Faculty.cpp"
 #include "Partime.cpp"
+#include <stdlib.h>
 
 std::vector<Employee *> Employee::employees(100);
-int Employee::n{0}; //current number of employees
+int Employee::n; //current number of employees
 
-void Employee::add(){
+void Employee::add(){ 
     char input;
     std::cout << "'f' to add a Faculty"
                  "\n's' to add a staff"
@@ -46,13 +47,13 @@ void Employee::display(){
         switch (employees[j]->get_type()) //display type
         {
         case tFaculty:
-            std::cout << ". Type: Faculty";
+            std::cout << ". Type: Faculty\n";
             break;
         case tStaff:
-            std::cout << ". Type: Scientist";
+            std::cout << ". Type: Staff\n";
             break;
         case tPartime:
-            std::cout << ". Type: Part Time";
+            std::cout << ". Type: Part Time\n";
             break;
         default:
             std::cout << ". Unknown type";
@@ -76,7 +77,6 @@ employee_type Employee::get_type(){
         std::cerr << "\nBad employee type";
         exit(1);
     }
-    return tFaculty;
 }
 void Employee::write() // from example file
 {
@@ -108,7 +108,7 @@ void Employee::write() // from example file
             size = sizeof(Partime);
             break;
         } //write employee object to file
-        ouf.write((char *)(&employees[j]), size);
+        ouf.write((char *)(employees[j]), size);
         if (!ouf)
         {
             std::cout << "\nCan't write to file\n";
