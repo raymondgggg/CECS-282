@@ -2,6 +2,7 @@
 #define EMPLOYEE_H
 #include <string>
 #include <vector>
+#include <fstream>
 double FACULTY_MONTHLY_SALARY {5000.00};
 double STAFF_MONTHLY_HOURS_WORKED {160};
 
@@ -21,8 +22,7 @@ class Employee{
         Sex sex;
         std::string bDay;
 
-        static std::vector<Employee *> employees;
-        static int n; //current number of employees
+        
 
     public:
         Employee(std::string lastName, std::string firstName, std::string id, Sex sex, std::string bDay);
@@ -42,8 +42,9 @@ class Employee{
 
         static void add(); //part 3 method
         static void display(); //part 3 method
-        static void read();//part 3 method
-        static void write();//part 3 method
+        
+        virtual void read(std::istream& in);//part 3 method
+        virtual void write(std::ostream& write);//part 3 method
 
         virtual double monthlyEarnings() = 0;
         virtual ~Employee();

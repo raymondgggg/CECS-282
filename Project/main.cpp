@@ -12,8 +12,8 @@
 #include "Partime.cpp"
 #include <stdlib.h>
 
-std::vector<Employee *> Employee::employees(100);
-int Employee::n; //current number of employees
+std::vector<Employee *> employees(100);
+int n {0}; //current number of employees
 
 void Employee::add(){ 
     char input;
@@ -78,7 +78,7 @@ employee_type Employee::get_type(){
         exit(1);
     }
 }
-void Employee::write() // from example file
+void write() // from example file
 {
     int size;
     std::cout << "Writing " << n << " employees.\n";
@@ -108,7 +108,7 @@ void Employee::write() // from example file
             size = sizeof(Partime);
             break;
         } //write employee object to file
-        ouf.write((char *)(employees[j]), size);
+        employees[j]->write(ouf);
         if (!ouf)
         {
             std::cout << "\nCan't write to file\n";
@@ -117,7 +117,7 @@ void Employee::write() // from example file
     }
 }
 
-void Employee::read()
+void read()
 {
     int size;            //size of employee object
     employee_type etype; //type of employee
@@ -157,7 +157,7 @@ void Employee::read()
             std::cout << "\nUnknown type in file\n";
             return;
         } //read data from file into it
-        inf.read((char *)employees[n], size);
+        employees[n]->read(inf);
         if (!inf) //error but not eof
         {
             std::cout << "\nCan't read data from file\n";
@@ -169,7 +169,7 @@ void Employee::read()
 }
 
 int main(){
-
+    
     char ch;
     while (true)
     {
@@ -189,13 +189,13 @@ int main(){
             Employee::display();
             break;
         case 'w': //write employees to file
-            Employee::write();
+            write();
             break;
         case 'r': //read all employees from file
-            Employee::read();
+            read();
             break;
         case 'x':
-            exit(0); //exit program
+            std::exit(0); //exit program
         default:
             std::cout << "\nUnknown command";
         }

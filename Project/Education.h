@@ -1,6 +1,7 @@
 #ifndef EDUCATION_H
 #define EDUCATION_H
 #include <string>
+#include <fstream>
 
 class Education{
     private:
@@ -18,5 +19,8 @@ class Education{
         void setDegree(std::string degree);
         void setMajor(std::string major);
         void setResearch(int r);
+
+        void write(std::ostream& out);
+        void read(std::istream& in);
 };
 #endif //EDUCATION_H

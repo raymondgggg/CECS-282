@@ -36,3 +36,13 @@ void Staff::getData(){
     std::cout << "Enter Hourly Rate: ";
     std::cin >> this->hrRate;
 }
+
+void Staff::write(std::ostream& out){
+    Employee::write(out);
+    out.write((char *) &hrRate, sizeof(hrRate));
+}
+
+void Staff::read(std::istream& in){
+    Employee::read(in);
+    in.read((char *) &hrRate, sizeof(hrRate)); 
+}

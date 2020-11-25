@@ -22,9 +22,8 @@ class Faculty: public Employee{
         virtual double monthlyEarnings() override;
         virtual void putData() override;
         virtual void getData() override; //part 3 method
+        virtual void read(std::istream& in) override;
+        virtual void write(std::ostream& out) override;
         virtual ~Faculty();
-        
-
-        
 };
 #endif //FACULTY_H

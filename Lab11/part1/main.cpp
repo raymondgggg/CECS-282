@@ -44,7 +44,7 @@ int main(){
     //Display the minimum element of vector v1
     cout << "Min element: " << *min_element(vec.begin(), vec.end()) << endl;
     //Display the accumulation of all elements in vector v1
-    cout << "Accumulation: " << accumulate(vec.begin(), vec.end(), 0) << endl;
+    cout << "Accumulation: " << accumulate(vec.begin(), vec.end(), 0.0) << endl;
     // Starting the summation from 0
 
     // Counts the occurrences of 2.2 from 1st to last element

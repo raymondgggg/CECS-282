@@ -35,3 +35,14 @@ void Partime::getData(){
     std::cout << "Enter hours per week: ";
     std::cin >> this->hrWk;
 }
+
+void Partime::write(std::ostream& out){
+    Staff::write(out);
+    out.write((char *) &hrWk, sizeof(hrWk));
+}
+
+void Partime::read(std::istream& in){
+    Staff::read(in);
+    in.read((char*) &hrWk, sizeof(hrWk));
+}
+
