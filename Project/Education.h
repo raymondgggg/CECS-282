@@ -20,7 +20,7 @@ class Education{
         void setMajor(std::string major);
         void setResearch(int r);
 
-        void write(std::ostream& out);
-        void read(std::istream& in);
+        void write(std::ofstream& out);
+        void read(std::ifstream& in);
 };
 #endif //EDUCATION_H

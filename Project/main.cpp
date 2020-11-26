@@ -85,7 +85,7 @@ void write() // from example file
     std::ofstream ouf;        //open ofstream in binary
     employee_type etype; //type of each employee object
 
-    ouf.open("EMPLOY.DAT", std::ios::trunc | std::ios::binary);
+    ouf.open("EMPLOY.DAT", std::ios::out | std::ios::binary);
     if (!ouf)
     {
         std::cout << "\nCan't open file\n";
@@ -107,7 +107,8 @@ void write() // from example file
         case tPartime:
             size = sizeof(Partime);
             break;
-        } //write employee object to file
+        } 
+        //write employee object to file
         employees[j]->write(ouf);
         if (!ouf)
         {
@@ -117,12 +118,11 @@ void write() // from example file
     }
 }
 
-void read()
-{
+void read(){
     int size;            //size of employee object
     employee_type etype; //type of employee
     std::ifstream inf;        //open ifstream in binary
-    inf.open("EMPLOY.DAT", std::ios::binary);
+    inf.open("EMPLOY.DAT", std::ios::in | std::ios::binary);
     if (!inf)
     {
         std::cout << "\nCan't open file\n";
@@ -169,7 +169,6 @@ void read()
 }
 
 int main(){
-    
     char ch;
     while (true)
     {
@@ -199,7 +198,7 @@ int main(){
         default:
             std::cout << "\nUnknown command";
         }
-    }     
+    }
 
     // std::vector<Employee *> e;
 

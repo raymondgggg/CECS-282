@@ -36,12 +36,12 @@ void Partime::getData(){
     std::cin >> this->hrWk;
 }
 
-void Partime::write(std::ostream& out){
+void Partime::write(std::ofstream& out){
     Staff::write(out);
     out.write((char *) &hrWk, sizeof(hrWk));
 }
 
-void Partime::read(std::istream& in){
+void Partime::read(std::ifstream& in){
     Staff::read(in);
     in.read((char*) &hrWk, sizeof(hrWk));
 }

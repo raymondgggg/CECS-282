@@ -80,13 +80,13 @@ void Faculty::getData(){
     Education e (degree, major, research);
     setEducation(e);
 }
-void Faculty::write(std::ostream &out){
+void Faculty::write(std::ofstream &out){
     Employee::write(out);
     out.write((char *) &l, sizeof(l));
     ed.write(out);
 }
 
-void Faculty::read(std::istream& in){
+void Faculty::read(std::ifstream& in){
     Employee::read(in);
     in.read((char *) &l,sizeof(l));
     ed.read(in);

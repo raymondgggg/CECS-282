@@ -37,12 +37,12 @@ void Staff::getData(){
     std::cin >> this->hrRate;
 }
 
-void Staff::write(std::ostream& out){
+void Staff::write(std::ofstream& out){
     Employee::write(out);
     out.write((char *) &hrRate, sizeof(hrRate));
 }
 
-void Staff::read(std::istream& in){
+void Staff::read(std::ifstream& in){
     Employee::read(in);
     in.read((char *) &hrRate, sizeof(hrRate)); 
 }

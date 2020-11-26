@@ -76,9 +76,7 @@ void Employee::getData(){
     std::cout << "Enter sex (m or f): ";
     std::cin >> gender;
     std::cin.ignore();
-
     
-
     gender = tolower(gender);
     if (gender == 'm')
         this->sex = M;
@@ -91,40 +89,45 @@ void Employee::getData(){
 }
 
 // Memeber method to write employee object that was written to binary file.
-void Employee::write(std::ostream &out){
-    out.write(reinterpret_cast<char*>(lastName.size()), sizeof(lastName.size()));
-    out.write(lastName.c_str(), lastName.size());
+void Employee::write(std::ofstream &out){
+    int strLen {lastName.length()};
+    out.write((char *) &strLen, sizeof(strLen));
+    out.write(lastName.c_str(), lastName.length());
 
-    out.write(reinterpret_cast<char *>(firstName.size()), sizeof(firstName.size()));
-    out.write(firstName.c_str(), firstName.size());
+    strLen = firstName.length();
+    out.write((char *) &strLen, sizeof(strLen));
+    out.write(firstName.c_str(), firstName.length());
 
-    out.write(reinterpret_cast<char*>(id.size()), sizeof(id.size()));
+    strLen = id.length();
+    out.write((char *) &strLen, sizeof(strLen));
     out.write(id.c_str(), id.size());
 
     out.write((char *) &sex, sizeof(sex));
 
-    out.write(reinterpret_cast<char*>(bDay.size()), sizeof(bDay.size()));
+    strLen = bDay.length();
+    out.write((char *)&strLen, sizeof(strLen));
     out.write(bDay.c_str(), bDay.size());
 }
 
 // Memeber method to read in the employee object that was written to binary file.
-void Employee::read(std::istream& in){
-    std::string::size_type len;
-    in.read(reinterpret_cast<char*>(&len), sizeof(len));
-    lastName = std::string(len, '\0');
-    in.read(&lastName[0], len);
+void Employee::read(std::ifstream& in){
+    int strLen;
 
-    in.read(reinterpret_cast<char *>(&len), sizeof(len));
-    firstName = std::string(len, '\0');
-    in.read(&firstName[0], len);
+    in.read((char *) &strLen, sizeof(strLen));
+    lastName.resize(strLen);
+    in.read((char *) lastName.c_str(), strLen);
 
-    in.read(reinterpret_cast<char *>(&len), sizeof(len));
-    id = std::string(len, '\0');
-    in.read(&id[0], len);
+    in.read((char *) &strLen, sizeof(strLen));
+    firstName.resize(strLen);
+    in.read((char *) firstName.c_str(), strLen);
+
+    in.read((char *) &strLen, sizeof(strLen));
+    id.resize(strLen);
+    in.read((char *) id.c_str(), strLen);
 
     in.read((char *) &sex, sizeof(sex));
 
-    in.read(reinterpret_cast<char *>(&len), sizeof(len));
-    bDay = std::string(len, '\0');
-    in.read(&bDay[0], len);
+    in.read((char *)&strLen, sizeof(strLen));
+    bDay.resize(strLen);
+    in.read((char *) bDay.c_str(), strLen);
 }

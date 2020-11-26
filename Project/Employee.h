@@ -22,8 +22,6 @@ class Employee{
         Sex sex;
         std::string bDay;
 
-        
-
     public:
         Employee(std::string lastName, std::string firstName, std::string id, Sex sex, std::string bDay);
         Employee();
@@ -43,8 +41,8 @@ class Employee{
         static void add(); //part 3 method
         static void display(); //part 3 method
         
-        virtual void read(std::istream& in);//part 3 method
-        virtual void write(std::ostream& write);//part 3 method
+        virtual void read(std::ifstream& in);//part 3 method
+        virtual void write(std::ofstream& write);//part 3 method
 
         virtual double monthlyEarnings() = 0;
         virtual ~Employee();

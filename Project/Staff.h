@@ -15,8 +15,8 @@ class Staff: public Employee{
         virtual double monthlyEarnings() override;
         virtual void putData() override;
         virtual void getData() override;
-        virtual void write(std::ostream& out) override;
-        virtual void read(std::istream& in) override;
+        virtual void write(std::ofstream& out) override;
+        virtual void read(std::ifstream& in) override;
         virtual ~Staff();
 
 };

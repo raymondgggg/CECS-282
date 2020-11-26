@@ -33,25 +33,28 @@ void Education::setResearch(int r){
     this->research = r;
 }
 
-void Education::write(std::ostream& out){
-    out.write(reinterpret_cast<char *>(degree.size()), sizeof(degree.size()));
-    out.write(degree.c_str(), degree.size());
+void Education::write(std::ofstream& out){
+    int strLen {degree.length()};
+    out.write((char *) &strLen, sizeof(strLen));
+    out.write(degree.c_str(), degree.length());
 
-    out.write(reinterpret_cast<char *>(major.size()), sizeof(major.size()));
-    out.write(major.c_str(), major.size());
+    strLen = major.length();
+    out.write((char *) &strLen, sizeof(strLen));
+    out.write(major.c_str(), major.length());
 
     out.write((char *) &research, sizeof(research));
 } 
 
-void Education::read(std::istream& in){
-    std::string::size_type len;
-    in.read(reinterpret_cast<char *>(&len), sizeof(len));
-    degree = std::string(len, '\0');
-    in.read(&degree[0], len);
+void Education::read(std::ifstream& in){
+    int strLen;
 
-    in.read(reinterpret_cast<char *>(&len), sizeof(len));
-    major = std::string(len, '\0');
-    in.read(&major[0], len);
+    in.read((char *) &strLen, sizeof(strLen));
+    degree.resize(strLen);
+    in.read((char *) degree.c_str(), strLen);
+
+    in.read((char *) &strLen, sizeof(strLen));
+    major.resize(strLen);
+    in.read((char *) major.c_str(), strLen);
 
     in.read((char *) &research, sizeof(research));
 }
