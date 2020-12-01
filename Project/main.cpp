@@ -1,5 +1,6 @@
 //Raymond Guevara Lozano
-//CECS 282 Project - part 2
+//Brent Nishioka
+//CECS 282 Project - part 3
 #include <iostream>
 #include <fstream> //for file-stream functions
 #include <vector>
