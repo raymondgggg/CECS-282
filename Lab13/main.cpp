@@ -75,14 +75,16 @@ void searchPerson(string lastName, string firstName, multiset<person *, compareP
 int main(){
     multiset<person *, comparePersons> people;
 
-    person *ptrP2 = new person("McDonald", "Stacey", 8435150);
-    person *ptrP3 = new person("Bartoski", "Peter", 9207404);
-    person *ptrP4 = new person("KuangThu", "Bruce", 6946473);
-    person *ptrP5 = new person("Wellington", "John", 7049982);
-    person *ptrP6 = new person("McDonald", "Amanda", 7764987);
-    person *ptrP7 = new person("Fredricks", "Roger", 5551230);
-    person *ptrP8 = new person("McDonald", "Stacey", 8435150);
+    person *ptrP1 = new person("KuangThu", "Bruce", 4157300);
+    person *ptrP2 = new person("Deauville", "William", 8435150);
+    person *ptrP3 = new person("Wellington", "John", 9207404);
+    person *ptrP4 = new person("Bartoski", "Peter", 6946473);
+    person *ptrP5 = new person("Fredericks", "Roger", 7049982);
+    person *ptrP6 = new person("McDonald", "Stacey", 7764987);
+    person *ptrP7 = new person("KuangThu", "Bruce", 5551230);
+    person *ptrP8 = new person("Deauville", "William", 8435150);
 
+    people.insert(ptrP1);
     people.insert(ptrP2);
     people.insert(ptrP3);
     people.insert(ptrP4);
