@@ -68,7 +68,6 @@ void searchPerson(string lastName, string firstName, multiset<person *, compareP
         if (*p == *sPerson)
             p->display();
     }
-
     cout << endl;
 }
  
