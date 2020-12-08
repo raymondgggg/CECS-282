@@ -92,31 +92,24 @@ int main(){
     people.insert(ptrP7);
     people.insert(ptrP8);
     
-    int usrInput {0};
-    cout << "1. Display people\n2. Search Person\n3. Exit program" << endl;
-    cin >> usrInput;
+   
 
-    while (usrInput != 3){
-        if (usrInput == 1){
-            for (person *p : people){
-                p->display();
-            }
-            cout << endl << endl;
-        }
-        else if (usrInput == 2)
-        {
-            cin.ignore();
-            string lastName;
-            string firstName;
-            cout << "Enter last name: ";
-            getline(cin, lastName);
-            cout << "Enter first name: ";
-            getline(cin, firstName);
-            searchPerson(lastName, firstName, people);
-            cout << endl;
-        }
-        cout << "1. Display people\n2. Search Person\n3. Exit program" << endl;
-        cin >> usrInput;
+    cout << "People in multiset" << endl;
+    for (person *p : people){
+        p->display();
     }
+    cout << endl << endl;
+
+    string lastName;
+    string firstName;
+    cout << "Enter last name: ";
+    getline(cin, lastName);
+    cout << "Enter first name: ";
+    getline(cin, firstName);
+    cout << "Searching for person" << endl;
+    searchPerson(lastName, firstName, people);
+    cout << endl;
+    
+        
     return 0;
 }
